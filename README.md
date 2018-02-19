@@ -111,7 +111,7 @@ async.parallel(
     </td>
     <td>
       <pre>
-await Promise.all([f1, f2, f3])
+const res = await Promise.all([f1, f2, f3])
       </pre>
     </td>
   </tr>
