@@ -62,4 +62,57 @@ while( !isCompleted ) {
       </pre>
     </td>
   </tr>
+  <tr>
+    <td>
+      <pre>
+async.series(
+    f1: function f1(cb) {...},
+    f2: function f2(cb) {...},
+    f3: function f3(cb) {...}
+), err => {
+  if(err) {
+    console.log('error', err);
+  } else {
+    console.log('info', 'success')
+  }
+}
+);
+      </pre>
+    </td>
+    <td>
+      <pre>
+try {
+  await f1()
+  await f2()
+  await f3()
+  console.log('info', 'success')
+} catch(err) {
+  console.log('error', err);
+}
+      </pre>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <pre>
+async.parallel(
+  f1: function f1(cb) {...},
+  f2: function f2(cb) {...},
+  f3: function f3(cb) {...}
+), err => {
+  if(err) {
+    console.log('error', err);
+  } else {
+    console.log('info', 'success')
+  }
+}
+);
+      </pre>
+    </td>
+    <td>
+      <pre>
+await Promise.all([f1, f2, f3])
+      </pre>
+    </td>
+  </tr>
 </table>
