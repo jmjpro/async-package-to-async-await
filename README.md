@@ -149,18 +149,35 @@ const res = await Promise.all([f1, f2, f3])
   <tr valign="top">
     <td>
       <pre>
-async.each(openFiles, saveFile, function(err){
-  // if any of the saves produced an error,
-  // err would equal that error
+async.eachSeries(openFiles, saveFile, function(err){
 });
       </pre>
     </td>
     <td>
       <pre>
 try {
-  for (let f of openFile) {
+  for (let f of openFiles) {
     await saveFile(f)
   }
+} catch(err) {
+  console.log('error', err);
+}
+      </pre>
+    </td>
+  </tr>
+  <tr valign="top">
+    <td>
+      <pre>
+async.each(openFiles, saveFile, function(err){
+});
+console.log('done')
+      </pre>
+    </td>
+    <td>
+      <pre>
+try {
+  await Promise.all(openFiles.map(async (it) => await saveFile(it))
+  console.log('done')
 } catch(err) {
   console.log('error', err);
 }
