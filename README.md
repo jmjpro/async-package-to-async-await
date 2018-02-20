@@ -2,7 +2,7 @@
 
 <table>
   <tr><th>Async package</th><th>es6 async/await</th></tr>
-  <tr>
+    <tr valign="top">
     <td>
       <pre>
 async.auto({
@@ -24,7 +24,7 @@ return results
       </pre>
     </td>
   </tr>
-  <tr>
+  <tr valign="top">
     <td>
       <pre>
 var isCompleted = 0;
@@ -62,7 +62,7 @@ while( !isCompleted ) {
       </pre>
     </td>
   </tr>
-  <tr>
+  <tr valign="top">
     <td>
       <pre>
 async.series(
@@ -92,7 +92,7 @@ try {
       </pre>
     </td>
   </tr>
-  <tr>
+  <tr valign="top">
     <td>
       <pre>
 async.parallel(
@@ -105,8 +105,7 @@ async.parallel(
   } else {
     console.log('info', 'success')
   }
-}
-);
+});
       </pre>
     </td>
     <td>
