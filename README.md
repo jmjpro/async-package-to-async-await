@@ -176,7 +176,7 @@ console.log('done')
     <td>
       <pre>
 try {
-  const resArr = await Promise.all(openFiles.map(async (it) => await saveFile(it))
+  const resArr = await Promise.all(openFiles.map(async it => await saveFile(it))
   console.log('done')
 } catch(err) {
   console.log('error', err);
