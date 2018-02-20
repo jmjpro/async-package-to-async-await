@@ -95,6 +95,35 @@ try {
   <tr valign="top">
     <td>
       <pre>
+async.waterfall(
+  f1: function f1(cb) {cb(null, 1, 2)},
+  f2: function f2(arg1, arg2, cb) {cb(null, 3)},
+  f3: function f3(arg1, cb) {cb(null, 'done')}
+), (err,result) => {
+  if(err) {
+    console.log('error', err);
+  } else {
+    console.log('info', result)
+  }
+});
+      </pre>
+    </td>
+    <td>
+      <pre>
+try {
+  const f1Res = await f1()
+  const f2Res = await f2(f1Res)
+  const f3Res = await f3(f2Res)
+  console.log('info', f3Res)
+} catch(err) {
+  console.log('error', err);
+}
+      </pre>
+    </td>
+  </tr>
+  <tr valign="top">
+    <td>
+      <pre>
 async.parallel(
   f1: function f1(cb) {...},
   f2: function f2(cb) {...},
@@ -117,26 +146,17 @@ const res = await Promise.all([f1, f2, f3])
   <tr valign="top">
     <td>
       <pre>
-async.waterfall(
-  f1: function f1(cb) {cb(null, 1, 2)},
-  f2: function f2(arg1, arg2, cb) {cb(null, 3)},
-  f3: function f3(arg1, cb) {cb(null, 'done')}
-), (err,result) => {
-  if(err) {
-    console.log('error', err);
-  } else {
-    console.log('info', result)
-  }
+async.each(openFiles, saveFile, function(err){
+  // if any of the saves produced an error, err would equal that error
 });
       </pre>
     </td>
     <td>
       <pre>
 try {
-  const f1Res = await f1()
-  const f2Res = await f2(f1Res)
-  const f3Res = await f3(f2Res)
-  console.log('info', f3Res)
+  for (let f of openFile) {
+    await saveFile(f)
+  }
 } catch(err) {
   console.log('error', err);
 }
