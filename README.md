@@ -1,4 +1,5 @@
-# Examples to show how to refactor callback-based code using the async npm package to use the es6 await/await syntax supported by nodejs v8+
+# Refactoring by example
+How to refactor callback-based code using the async npm package to use the es6 await/await syntax supported by nodejs v8+
 
 <table>
   <tr>
