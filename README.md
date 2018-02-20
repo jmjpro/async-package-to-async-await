@@ -142,7 +142,7 @@ async.parallel(
     </td>
     <td>
       <pre>
-const res = await Promise.all([f1, f2, f3])
+const [res1, res2, res3] = await Promise.all([f1, f2, f3])
       </pre>
     </td>
   </tr>
@@ -176,7 +176,7 @@ console.log('done')
     <td>
       <pre>
 try {
-  await Promise.all(openFiles.map(async (it) => await saveFile(it))
+  const resArr = await Promise.all(openFiles.map(async (it) => await saveFile(it))
   console.log('done')
 } catch(err) {
   console.log('error', err);
