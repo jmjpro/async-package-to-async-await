@@ -147,7 +147,8 @@ const res = await Promise.all([f1, f2, f3])
     <td>
       <pre>
 async.each(openFiles, saveFile, function(err){
-  // if any of the saves produced an error, err would equal that error
+  // if any of the saves produced an error,
+  // err would equal that error
 });
       </pre>
     </td>
